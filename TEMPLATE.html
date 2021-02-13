@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico"> -->
+	
+	<title>Yosemite Webcam Archive</title>
+	
+	<!-- Bootstrap core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/bootstrap.css">
+
+	<!-- Custom styles for this template -->
+	<link rel="stylesheet" href="css/styles_v2.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+
+    <main role="main" class="container">
+
+      <div class="intro">
+        <h1>Yosemite Webcam Archive</h1>
+        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+      </div>
+
+    </main><!-- /.container -->
+	
+
+	<div class = "container">
+		<div class="slidecontainer">
+			<input id="valR" class = "slider" type="range" min="0" max="{{max_value}}" value="0" step="1" oninput="showVal(this.value)" onchange="showVal(this.value)" />
+		</div>
+		<div class="row">
+		<div class = "col-4" style="text-align:left;"><p>6:00 am</p></div>
+		<div class = "col-4" style="text-align:center;"><p>12:00 pm</p></div>
+		<div class = "col-4" style="text-align:right;"><p>6:00 pm</p></div>
+		</div>
+		<h1 style="text-align:center;"><span id="range">0</span></h1>
+		
+		<div class="wrapper" style="text-align:center;">
+		  <div class="box day_5">{{DAY_5}}<img id="img5" class = "center" style="width:300px;"></div>
+		  <div class="box day_4">{{DAY_4}}<img id="img4" class = "center" style="width:300px;"></div>
+		  <div class="box day_3">{{DAY_3}}<img id="img3" class = "center" style="width:300px;"></div>
+		  <div class="box day_2">{{DAY_2}}<img id="img2" class = "center" style="width:300px;"></div>
+		  <div class="box day_1">{{DAY_1}}<img id="img1" class = "center" style="width:600px;"></div>
+		</div>
+	</div>
+	
+	<script>
+	var times = new Array({{time_array}});
+	img_url = "https://ik.imagekit.io/awtdzogrfnn/";
+	
+    var val = document.getElementById("valR").value;
+        document.getElementById("range").innerHTML=times[val];
+        document.getElementById("img1").src = img_url + "D01/" + val + ".jpg";
+		document.getElementById("img2").src = img_url + "D02/" + val + ".jpg";
+		document.getElementById("img3").src = img_url + "D03/" + val + ".jpg";
+		document.getElementById("img4").src = img_url + "D04/" + val + ".jpg";
+		document.getElementById("img5").src = img_url + "D05/" + val + ".jpg";
+    function showVal(newVal){
+        document.getElementById("range").innerHTML=times[newVal];
+        document.getElementById("img1").src = img_url + "D01/" + newVal + ".jpg";
+		document.getElementById("img2").src = img_url + "D02/" + newVal + ".jpg";
+		document.getElementById("img3").src = img_url + "D03/" + newVal + ".jpg";
+		document.getElementById("img4").src = img_url + "D04/" + newVal + ".jpg";
+		document.getElementById("img5").src = img_url + "D05/" + newVal + ".jpg";
+        }
+	</script>
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+
+
+

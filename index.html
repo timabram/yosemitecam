@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<!--<script src="js/slider.js"></script>-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<h1>Range Slider Test</h1>
+	<div class="slidecontainer">
+	    <input id="valR" class = "slider" type="range" min="0" max="{{max_value}}" value="1" step="1" oninput="showVal(this.value)" onchange="showVal(this.value)" />
+	</div>
+		<h1><span id="range" style="text-align:center">0</span></h1>
+	<div class = "row">
+		<img id="img" style="width:1400px">
+	</div>
+	
+	<script>
+
+	var times = new Array({{time_array}});
+    img_url = "C:/Users/Tim/Desktop/NPS_2021/webtest3/";
+    var val = document.getElementById("valR").value;
+        document.getElementById("range").innerHTML=times[val];
+        document.getElementById("img").src = img_url+ val + ".jpg";
+    function showVal(newVal){
+        document.getElementById("range").innerHTML=times[newVal];
+        document.getElementById("img").src = img_url +newVal+ ".jpg";
+        }
+	</script>
+	
+	<!--
+	  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+	  <p>Value: <span id="demo"></span></p>
+	</div>
+	
+	<script>
+	var slider = document.getElementById("myRange");
+	var output = document.getElementById("demo");
+	output.innerHTML = slider.value;
+
+	slider.oninput = function() {
+	  output.innerHTML = this.value;
+	}
+	</script>
+	-->
+
+</body>
+</html>
+
+
+
+
+
